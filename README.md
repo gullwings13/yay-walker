@@ -8,7 +8,7 @@ _**Walking Tour App** is a full stack application for submitting and taking walk
 
 ### Permissions
 
-Digital assets used with full licensing and permission from [Death to Stock Photo](), [Freepik](), and [Unsplash](). Custom digital design and branding by John Lansing. Digital assets stored locally and on [Imgur]().
+Digital assets used with full licensing and permission from [Unsplash](). Digital assets stored locally. PMVP includes ability to upload images.
 
 <br>
 
@@ -26,20 +26,24 @@ _The **Walking Tour App** MVP will allow a user to sign up/login and view and su
 - _User can browse existing tours._
 - _User can edit their own profile._
 - _User can consume tours._
-- _User can place points on a map to indicate walking tour path._
+- _User can place and move points on a map to indicate walking tour path._
+- _User can view points on a map to indicate walking tour path._
+
 
 <br>
 
 ### MVP Libraries
 
-|     Library      | Description                                |
-| :--------------: | :----------------------------------------- |
-|      React       | _Lorem ipsum dolor sit amet, consectetur._ |
-|      Axios       | _Lorem ipsum dolor sit amet, consectetur._ |
-|     Gatsby       | _Lorem ipsum dolor sit amet, consectetur._ |
-|  Typography.js   | _Lorem ipsum dolor sit amet, consectetur._ |
-|   Ruby on Rails  | _Lorem ipsum dolor sit amet, consectetur._ |
-|       CORS       | _Lorem ipsum dolor sit amet, consectetur._ |
+|     Library      |MVP| Description                                |
+| :--------------: | :-:|:----------------------------------------- |
+|      React       | Yes | _The core front end framework._ |
+|      Axios       | Yes | _To make API calls from the front end to the RoR Backend._ |
+|     Gatsby       | Yes | _An additional framework for the frontend focusing on fast page loads, Gatsby will handle the routing of the front end app._ |
+|  Typography.js   | No | _A CSS Addon for the frontend to make font styling easier._ |
+|  TailwindCSS   | No | _A CSS Library for the frontend._ |
+|   Ruby on Rails  | Yes | _The core backend framework._ |
+|   Devise  | No | _Backend framework to handle security._ |
+|      Rack CORS       | Yes | _Backend library to provide support for Cross-Origin Resource Sharing (CORS)._ |
 
 <br>
 
