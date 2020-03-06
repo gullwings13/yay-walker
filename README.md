@@ -57,7 +57,7 @@ https://scene.zeplin.io/project/5e6176ef832f4b12e2a5ce26
 
 Blue dashed components are shared and will be used in the page component placed above them in the diagram
 
-![Component Hierarchy](./components.png)
+![Component Hierarchy](./Components.png)
 
 #### Component Breakdown
 
