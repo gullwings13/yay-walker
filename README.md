@@ -38,7 +38,7 @@ _The **Walking Tour App** MVP will allow a user to sign up/login and view and su
 | :--------------: | :-:|:----------------------------------------- |
 |      React       | Yes | _The core front end framework._ |
 |      Axios       | Yes | _To make API calls from the front end to the RoR Backend._ |
-|     Gatsby       | Yes | _An additional framework for the frontend focusing on fast page loads, Gatsby will handle the routing of the front end app._ |
+|     Gatsby       | Yes | _An additional framework for the frontend focusing on fast page loads, Gatsby will handle the routing of the front end app, which is based on filestructure._ |
 |  Typography.js   | No | _A CSS Addon for the frontend to make font styling easier._ |
 |  TailwindCSS   | No | _A CSS Library for the frontend._ |
 |   Ruby on Rails  | Yes | _The core backend framework._ |
@@ -55,19 +55,36 @@ https://scene.zeplin.io/project/5e6176ef832f4b12e2a5ce26
 
 #### Component Hierarchy
 
+Blue dashed components are shared and will be used in the page component placed above them in the diagram
 
+![Component Hierarchy](./components.png)
 
 #### Component Breakdown
 
-> Use this section to go into further depth regarding your components, including breaking down the components as stateless or stateful, and considering the passing of data between those components.
-
 |  Component   | State | Description                                                      |
 | :----------: | :---: | :--------------------------------------------------------------- |
-|    Header    |   n   | _The header will contain the navigation and logo._               |
-|  Navigation  |   n   | _The navigation will provide a link to each of the pages._       |
-|   Gallery    |   y   | _The gallery will render the posts using cards in flexbox._      |
-| Gallery Card |   n   | _The cards will render the post info via props._                 |
-|    Footer    |   n   | _The footer will show info about me and a link to my portfolio._ |
+|    Login    |   n   | _Allows user to login._               |
+|  Signup  |   n   | _Allows user to sign up._       |
+|   LoginSignupForm    |   y   | _A shared form for login and sign up._      |
+| ViewProfile |   n   | _Will render the user profile._                 |
+|    EditProfile    |   n   | _Allows the initial creation and editing of a user profile._ |
+|    TourlistSmall    |   n   | _Intended to show a list of tours that the user has created._ |
+|    Home    |   n   | _The main page and will show a list of tours._ |
+|    Tourlist    |   n   | _The component which will map over the list of all available tours._ |
+|    TopNav    |   n   | _Allows some basic navigation (such as visiting user profile, home)._ |
+|    BottomNav    |   n   | _More for POST MVP and would be use to filter tours._ |
+|    CreateTour    |   n   | _User can create a tour._ |
+|    EditTour    |   n   | _User can edit a tour._ |
+|    ViewTour    |   n   | _User can view a tour._ |
+|    DeleteTour    |   n   | _Confirmation page before deleting tour._ |
+|    TourForm    |   n   | _Form used by create and edit tour._ |
+|    TourDisplay    |   n   | _Used to display tour._ |
+|    CreateMap    |   n   | _Page for editing points on a map._ |
+|    EditMap    |   n   | _Page for editing points on a map._ |
+|    ViewMap    |   n   | _Page for viewing a map._ |
+|    Map    |   n   | _Shared component used by all the Map pages._ |
+|    PointForm    |   n   | _Point edit form._ |
+|    PointDisplay    |   n   | _Point display form._ |
 
 <br>
 
@@ -75,20 +92,40 @@ https://scene.zeplin.io/project/5e6176ef832f4b12e2a5ce26
 
 #### ERD Model
 
-> Use this section to display an image of a computer generated ERD model.
+Entities outlined in red intended for POST MVP
+
+![ERD](./ERD.png)
 
 #### Endpoints
 
-> Use this section to list a selection of your intended endpoints and their uses. Please list any and all custom-created endpoints.
-
 - GET `/users`
-	- Index route returning an array of all Users and nested 'Likes'
+	- Index route returning an array of all Users and nested 'Tours'
 - GET `/users/:id`
 	- Show route for a user requested by ID
+- GET `/users/:id/tours`
+	- Show route for a users tours requested by ID
+- GET `/users/:id/tours/:tour_id`
+	- Show route for a users tour requested by ID
 - POST `/users`
 	- Create route for a new user
-- PUT `/users/:id/nominate`
-  - Update a user by id to create an association to the ballots table
+- PUT `/users/:id`
+  - Update a user by id
+
+- GET `/tours`
+	- Index route returning an array of all 'Tours'
+- GET `/tours/:id`
+	- Show route for a tour requested by ID and nested points
+- POST `/tour`
+	- Create route for a new tour
+- PUT `/users/:id`
+  - Update a tour by id
+
+- GET `/points/:id`
+	- Show route for a point requested by ID
+- POST `/points`
+	- Create route for a new point
+- PUT `/points/:id`
+  - Update a point by id
 
 <br>
 
@@ -96,39 +133,39 @@ https://scene.zeplin.io/project/5e6176ef832f4b12e2a5ce26
 
 ## Planning
 
-> You've got a little over a week to reach your Minimum Viable Product. Use these sections to plan out your approach.
-
-<br>
-
 ### Timeframes
 
-> Use this section to estimate the time necessary to build out the various sections of your project. You may include an additional priority matrix, if you desire.
 
 | Task                | Priority | Estimated Time | Actual Time |
 | ------------------- | :------: | :------------: | :---------: |
-| Add Contact Form    |    L     |     3 hrs      |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     TBD     |
-| TOTAL               |          |     6 hrs      |     TBD     |
-
-> _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evalute possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
+| Build backend   |    H     |     4 hrs      |    TBD    |
+| Seed DB   |    L     |     1 hrs      |    TBD    |
+| Test backend CRUD |    M     |     1 hrs      |     TBD     |
+| Basic backend Auth |    M     |     5 hrs      |     TBD     |
+| Build basic front end |    H     |     5 hrs      |     TBD     |
+| Basic frontend Auth |    M     |     5 hrs      |     TBD     |
+| Build basic front end navigation |    M     |     10 hrs      |     TBD     |
+| Build front end crud |    H     |     10 hrs      |     TBD     |
+| Basic front end styling |    M     |     10 hrs      |     TBD     |
+| Details front end styling |    L     |     10 hrs      |     TBD     |
+| TOTAL               |          |     62 hrs      |     TBD     |
 
 <br>
 
 ### Schedule
 
-> Use this section to look at your project week and plan out when and what you want to do.
 
 |  Day   | Deliverables                              |
 | ------ | ----------------------------------------- |
-|Mar 4th | project proposal worksheet / psuedocoding |
-|Mar 5th | project pitch / build out endpoints       |
-|Mar 6th | Build out front-end components            |
-|Mar 7th | OFF                                       |
-|Mar 8th | impliment user auth                       |
-|Mar 9th | styling                                   |
-|Mar 10th| MVP, begin post-MVP                       |
-|Mar 11th| post-MVP                                  |
-|Mar 12th| polishing                                 |
+|Mar 4th | project proposal worksheet |
+|Mar 5th | project proposal worksheet |
+|Mar 6th | project proposal worksheet / project pitch / build out backend with endpoints       |
+|Mar 7th | Front end components / backend and front end auth|
+|Mar 8th | Front end CRUD                      |
+|Mar 9th | basic styling / Continue on functionality / user flow                                   |
+|Mar 10th| Continue on functionality                 |
+|Mar 11th| post-MVP MVP begin styling                                  |
+|Mar 12th| Styling                |
 |Mar 13th| final presentations                       |
 
 <br>
@@ -137,7 +174,8 @@ https://scene.zeplin.io/project/5e6176ef832f4b12e2a5ce26
 
 ## Post-MVP
 
-- _Snap points of interest to roads/pathes,_
+- _User can Fav and Rate tours_
+- _Snap points of interest to roads/pathes_
 - _Show users current location on map._
 - _Give user directions how to get from one point of interest to the next._
 - _Allow user to search for walking tours._
@@ -150,14 +188,13 @@ https://scene.zeplin.io/project/5e6176ef832f4b12e2a5ce26
 
 ## Project Change Log
 
-> This section should be expanded and revised as you work on your project.
 
 ## Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
+TBA
 
 ## Code Issues & Resolutions
 
-> Use this section to list of all major issues encountered and their resolution, if you'd like.
+Using Gatsby will present a challenge for my front end. I plan to not freak out and learn as I am building. I have already taken some time to investigate the framework which is helping to mitgate the risk 
 
 ***
