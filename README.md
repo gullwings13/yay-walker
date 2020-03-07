@@ -66,22 +66,22 @@ Blue dashed components are shared and will be used in the page component placed 
 |    Login    |   n   | _Allows user to login._               |
 |  Signup  |   n   | _Allows user to sign up._       |
 |   LoginSignupForm    |   y   | _A shared form for login and sign up._      |
-| ViewProfile |   n   | _Will render the user profile._                 |
-|    EditProfile    |   n   | _Allows the initial creation and editing of a user profile._ |
+| ViewProfile |   y   | _Will render the user profile._                 |
+|    EditProfile    |   y   | _Allows the initial creation and editing of a user profile._ |
 |    TourlistSmall    |   n   | _Intended to show a list of tours that the user has created._ |
-|    Home    |   n   | _The main page and will show a list of tours._ |
+|    Home    |   y   | _The main page and will show a list of tours._ |
 |    Tourlist    |   n   | _The component which will map over the list of all available tours._ |
 |    TopNav    |   n   | _Allows some basic navigation (such as visiting user profile, home)._ |
 |    BottomNav    |   n   | _More for POST MVP and would be use to filter tours._ |
-|    CreateTour    |   n   | _User can create a tour._ |
-|    EditTour    |   n   | _User can edit a tour._ |
-|    ViewTour    |   n   | _User can view a tour._ |
+|    CreateTour    |   y   | _User can create a tour._ |
+|    EditTour    |   y   | _User can edit a tour._ |
+|    ViewTour    |   y  | _User can view a tour._ |
 |    DeleteTour    |   n   | _Confirmation page before deleting tour._ |
 |    TourForm    |   n   | _Form used by create and edit tour._ |
 |    TourDisplay    |   n   | _Used to display tour._ |
-|    CreateMap    |   n   | _Page for editing points on a map._ |
-|    EditMap    |   n   | _Page for editing points on a map._ |
-|    ViewMap    |   n   | _Page for viewing a map._ |
+|    CreateMap    |   y   | _Page for editing points on a map._ |
+|    EditMap    |   y   | _Page for editing points on a map._ |
+|    ViewMap    |   y   | _Page for viewing a map._ |
 |    Map    |   n   | _Shared component used by all the Map pages._ |
 |    PointForm    |   n   | _Point edit form._ |
 |    PointDisplay    |   n   | _Point display form._ |
