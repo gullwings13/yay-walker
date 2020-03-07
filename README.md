@@ -138,10 +138,10 @@ Entities outlined in red intended for POST MVP
 
 | Task                | Priority | Estimated Time | Actual Time |
 | ------------------- | :------: | :------------: | :---------: |
-| Build backend   |    H     |     4 hrs      |    TBD    |
-| Seed DB   |    L     |     1 hrs      |    TBD    |
-| Test backend CRUD |    M     |     1 hrs      |     TBD     |
-| Basic backend Auth |    M     |     5 hrs      |     TBD     |
+| Build backend   |    H     |     4 hrs      |    **2hrs**    |
+| Seed DB   |    L     |     1 hrs      |    **2hrs**    |
+| Test backend CRUD |    M     |     1 hrs      |     **1hr**     |
+| Basic backend Auth |    M     |     5 hrs      |     **2hr**     |
 | Build basic front end |    H     |     5 hrs      |     TBD     |
 | Basic frontend Auth |    M     |     5 hrs      |     TBD     |
 | Build basic front end navigation |    M     |     10 hrs      |     TBD     |
