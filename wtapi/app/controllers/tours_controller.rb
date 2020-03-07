@@ -1,3 +1,0 @@
-class ToursController < ApiController
-    
-end

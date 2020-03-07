@@ -1,3 +1,0 @@
-class PointsController < ApiController
-    
-end

@@ -4,30 +4,12 @@ class Api::V1::UsersController < ApiController
     
     def index
         @users = User.all
-        render json: @users
+        render json: @users, status: :ok
     end
-
-    # def show
-    #     @user = User.find(params[:id])
-    #     render json: @user, include: :tours
-    # end
-
-    # def update
-    #     @user = User.find(params[:id])
-
-    #     render json: @user
-    # end
-
-    # def destroy
-    #     @user = User.find(params[:id])
-        
-    #     render json: @user
-    # end
 
     def show 
         begin
             render json: @user, include: :tours, status: :ok
-            
         rescue ActiveRecord::RecordNotFound
             render json: {
                 message: "User not found with that ID"
@@ -44,8 +26,8 @@ class Api::V1::UsersController < ApiController
         if @user.update(user_params)
             render json: {
                 message: "ok",
-                teacher: @user
-            }
+                user: @user
+            }, status: :ok
         else 
             render json: {
                 message: @user.errors
@@ -57,13 +39,21 @@ class Api::V1::UsersController < ApiController
         @user.destroy
         render json: {
             message: "ok"
-        }
+        }, status: :ok
     end
     
     private 
   
-    def set_user 
-        @user = User.find(params[:id])
+    def set_user
+        a_user = User.find(params[:id])
+        if(current_user == a_user)
+            @user = a_user
+        else
+            exclude_columns = ['password', 'email']
+            columns = User.attribute_names - exclude_columns
+            @user = User.select(columns).find(params[:id])
+        end
+
     end
   
     def user_params
