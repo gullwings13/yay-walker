@@ -1,6 +1,6 @@
 import React from "react"
-import { getUser } from "../services/auth"
-import Layout from "../components/layout"
+import { getUser } from "../../services/auth"
+import Layout from "../../components/layout"
 const Profile = () => (
     <Layout>
         <h1>Your profile</h1>

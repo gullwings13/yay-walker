@@ -1,48 +1,49 @@
 import React from "react"
 import { navigate } from "gatsby"
 import { handleLogin, isLoggedIn } from "../services/auth"
+
 class Login extends React.Component
 {
     state = {
-        username: ``,
+        email: ``,
         password: ``,
     }
+
     handleUpdate = event =>
     {
         this.setState({
             [event.target.name]: event.target.value,
         })
     }
-    handleSubmit = event =>
+
+    handleSubmit = async event =>
     {
         event.preventDefault()
-        handleLogin(this.state)
+        await handleLogin(this.state)
+        navigate(`/`)
     }
+
     render()
     {
         if (isLoggedIn())
         {
-            navigate(`/profile`)
+            navigate(`/`)
         }
         return (
             <>
                 <h1>Log in</h1>
-                <form
-                    method="post"
-                    onSubmit={event =>
-                    {
-                        this.handleSubmit(event)
-                        navigate(`/profile`)
-                    }}
-                >
+                <form method="post" onSubmit={event =>
+                {
+                    this.handleSubmit(event)
+
+                }}>
                     <label>
-                        Username
-            <input type="text" name="username" onChange={this.handleUpdate} />
+                        Email
+                    <input type="text" name="email" onChange={this.handleUpdate} />
                     </label>
                     <label>
                         Password
-            <input
-                            type="password"
+                        <input type="password"
                             name="password"
                             onChange={this.handleUpdate}
                         />

@@ -40,3 +40,4 @@ end
 
 
 
+user9 = User.create(email:"t@t.com", password:"password", name:Faker::Internet.username, bio:Faker::Hipster.paragraph(sentence_count: 1), avatar_url:Faker::Avatar.image)

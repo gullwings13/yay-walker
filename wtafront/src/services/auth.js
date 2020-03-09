@@ -1,29 +1,44 @@
+import axios from 'axios'
+
 export const isBrowser = () => typeof window !== "undefined"
 export const getUser = () =>
-    isBrowser() && window.localStorage.getItem("gatsbyUser")
-        ? JSON.parse(window.localStorage.getItem("gatsbyUser"))
+    isBrowser() && window.localStorage.getItem("Yay!Walker")
+        ? JSON.parse(window.localStorage.getItem("Yay!Walker"))
         : {}
 const setUser = user =>
-    window.localStorage.setItem("Yay!Walk", JSON.stringify(user))
-export const handleLogin = ({ username, password }) =>
+    window.localStorage.setItem("Yay!Walker", JSON.stringify(user))
+
+export const handleLogin = async ({ email, password }) =>
 {
-    if (username === `john` && password === `pass`)
+    try
     {
-        return setUser({
-            username: `john`,
-            name: `Johnny`,
-            email: `johnny@example.org`,
+        let response = await axios.post('http://localhost:3000/api/v1/auth', {
+            email: email,
+            password: password
         })
+
+        if (response.status == 200)
+        {
+            return setUser({
+                token: response.data.token,
+                name: response.data.name,
+                avatarUrl: response.data.avatarUrl
+            })
+        }
+        return false
+    } catch (error)
+    {
+        console.log(error)
     }
-    return false
+
 }
 export const isLoggedIn = () =>
 {
     const user = getUser()
-    return !!user.username
+    return !!user.token
 }
-export const logout = callback =>
+export const logout = async callback =>
 {
-    setUser({})
+    await setUser({})
     callback()
 }

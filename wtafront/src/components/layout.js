@@ -9,7 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
+// import Header from "./header"
 import "./layout.css"
 import NavBar from "./nav-bar"
 
@@ -27,8 +27,8 @@ const Layout = ({ children }) =>
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <NavBar />
+      {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
+      <NavBar siteTitle={data.site.siteMetadata.title} />
       <div>
         <main>{children}</main>
         <footer>
