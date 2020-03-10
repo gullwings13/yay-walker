@@ -13,7 +13,7 @@ export const handleLogin = async ({ email, password }) =>
     try
     {
         //let response = await axios.post('http://localhost:3000/api/v1/auth', {
-        let response = await axios.post("https://aqueous-fortress-10362.herokuapp.com/api/v1/", {
+        let response = await axios.post("https://aqueous-fortress-10362.herokuapp.com/api/v1/auth", {
             email: email,
             password: password
         })

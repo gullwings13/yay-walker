@@ -4,7 +4,7 @@ import axios from 'axios'
 import TourCardBig from './tourCardBig'
 
 // const APIURL = "http://localhost:3000"
-const APIURL = "https://aqueous-fortress-10362.herokuapp.com/api/v1/"
+const APIURL = "https://aqueous-fortress-10362.herokuapp.com"
 
 
 const TourList = () =>
