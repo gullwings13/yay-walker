@@ -26,8 +26,8 @@ class IndexPage extends React.Component
     return (
       <Layout>
         <SEO title="Home" />
-        <h1>Hello {isLoggedIn() ? getUser().name : "you are not logged in"}!</h1>
-        <p>
+        {/* <h1>Hello {isLoggedIn() ? getUser().name : "you are not logged in"}!</h1> */}
+        {/* <p>
           {isLoggedIn() ? (
             <>
               You are logged in, so check your{" "}
@@ -39,8 +39,8 @@ class IndexPage extends React.Component
                 content
         </>
             )}
-        </p>
-        <p>Welcome to Yay!Walk</p>
+        </p> */}
+        {/* <p>Welcome to Yay!Walk</p> */}
         <TourList/>
         {/* <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}> */}
         {/* <div>

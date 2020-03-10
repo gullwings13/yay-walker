@@ -17,7 +17,7 @@ export const handleLogin = async ({ email, password }) =>
             password: password
         })
 
-        if (response.status == 200)
+        if (response.status === 200)
         {
             return setUser({
                 token: response.data.token,

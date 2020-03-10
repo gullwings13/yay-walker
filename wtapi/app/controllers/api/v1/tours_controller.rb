@@ -71,6 +71,7 @@ class Api::V1::ToursController < ApiController
 
     def tour_params
       params.permit(:name, :description, :img_url, :user_id)
+      .with_defaults(user_id: current_user.id)
     end
 
 

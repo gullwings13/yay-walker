@@ -6,9 +6,8 @@ class Api::V1::PointsController < ApiController
     def index
         p params[:tour_id]
         if params[:tour_id].nil?
-            render json: {
-                message: "Tour id required"
-            }, status: 404
+            @points = Point.all
+            render json: @points, include: :tour, status: :ok
         else
             @points = Point.where(tour_id: params[:tour_id])
             render json: @points, status: :ok

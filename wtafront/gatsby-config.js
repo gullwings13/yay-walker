@@ -5,6 +5,98 @@ module.exports = {
     author: `Trevor Smith-Holbourn`,
   },
   plugins: [
+    `gatsby-plugin-postcss`,
+    {
+      resolve: "gatsby-source-custom-api",
+      options: {
+        url: {
+          development: "http://localhost:3000/api/v1/all", // on "gatsby develop"
+          production: "https://my-remote-api.com" // on "gatsby build"
+        },
+        imageKeys: ["avatar_url", "img_url", "picture_url"],
+        rootKey: "users",
+        schemas: {
+          users: `
+            name: String
+            bio: String
+            avatar_url: String
+            tours:[tours]
+          `,
+          tours: `
+            name: String
+            description: String
+            user_id: Int
+            img_url: String
+            points: [points]
+          `,
+          points: `
+            lat: Float
+            long: Float
+            text: String
+            order: Int
+            tour_id: Int
+            picture_url: String
+          `
+        }
+      }
+    },
+    // {
+    //   resolve: "gatsby-source-custom-api",
+    //   options: {
+    //     url: {
+    //       development: "http://localhost:3000/api/v1/users", // on "gatsby develop"
+    //       production: "https://my-remote-api.com" // on "gatsby build"
+    //     },
+    //     imageKeys: ["avatar_url"],
+    //     rootKey: "users",
+    //     schemas: {
+    //       users: `
+    //         name: String
+    //         bio: String
+    //         avatar_url: String
+    //       `
+    //     }
+    //   }
+    // },
+    {
+      resolve: "gatsby-source-custom-api",
+      options: {
+        url: {
+          development: "http://localhost:3000/api/v1/tours", // on "gatsby develop"
+          production: "https://my-remote-api.com" // on "gatsby build"
+        },
+        imageKeys: ["img_url"],
+        rootKey: "tours",
+        schemas: {
+          tours: `
+            user_id: Int
+            name: String
+            img_url: String
+          `
+        }
+      }
+    },
+    {
+      resolve: "gatsby-source-custom-api",
+      options: {
+        url: {
+          development: "http://localhost:3000/api/v1/points", // on "gatsby develop"
+          production: "https://my-remote-api.com" // on "gatsby build"
+        },
+        imageKeys: ["picture_url"],
+        rootKey: "points",
+        schemas: {
+          tours: `
+              tour_id: Int
+              lat: Float
+              long: Float
+              order: Int
+              text: String
+              picture_url: String
+          `
+        }
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -30,5 +122,5 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-  ],
+  ]
 }

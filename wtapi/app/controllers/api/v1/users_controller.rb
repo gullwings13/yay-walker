@@ -1,10 +1,15 @@
 class Api::V1::UsersController < ApiController
-    skip_before_action :authenticate_user!, only: [:index, :show]
+    skip_before_action :authenticate_user!, only: [:index, :show, :all]
     before_action :set_user, only: [:show, :update, :destroy]
     
     def index
         @users = User.all
         render json: @users, status: :ok
+    end
+
+    def all
+        @users = User.all
+        render json: @users, :include => {:tours => {include: :points}}, status: :ok
     end
 
     def show 

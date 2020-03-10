@@ -9,9 +9,10 @@ Rails.application.routes.draw do
           resources :points
         end
       end
-
       resources :tours
+      resources :points
 
+      get 'all' => 'users#all'
       # get 'post/index'
       post :auth, to: 'authentication#create'
       get  '/auth' => 'authentication#fetch'

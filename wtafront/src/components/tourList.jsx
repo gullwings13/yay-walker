@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import TourCardBig from './tourCardBig'
 
 const APIURL = "http://localhost:3000"
 
@@ -23,15 +24,10 @@ const TourList = () =>
     const mapTours = () =>
     {
         return (
-            <div> Tours:
+            <div className="flex flex-wrap w-full">
                 {tours.map((tour, index) => (
-                <div key={index}>
-                    {console.log(tour)}
-                    <div>{tour.name}</div>
-                    <div style={{ width: "100px" }}><img src={tour.img_url} alt="tour" /></div>
-                    <div></div>
-                </div>
-            ))}
+                    <TourCardBig tour={tour} key={index} />
+                ))}
             </div>
         )
     }
