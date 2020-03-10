@@ -11,7 +11,7 @@ module.exports = {
       options: {
         url: {
           development: "http://localhost:3000/api/v1/all", // on "gatsby develop"
-          production: "https://my-remote-api.com" // on "gatsby build"
+          production: "https://aqueous-fortress-10362.herokuapp.com/api/v1/all" // on "gatsby build"
         },
         imageKeys: ["avatar_url", "img_url", "picture_url"],
         rootKey: "users",
@@ -63,7 +63,7 @@ module.exports = {
       options: {
         url: {
           development: "http://localhost:3000/api/v1/tours", // on "gatsby develop"
-          production: "https://my-remote-api.com" // on "gatsby build"
+          production: "https://aqueous-fortress-10362.herokuapp.com/api/v1/tours" // on "gatsby build"
         },
         imageKeys: ["img_url"],
         rootKey: "tours",
@@ -81,7 +81,7 @@ module.exports = {
       options: {
         url: {
           development: "http://localhost:3000/api/v1/points", // on "gatsby develop"
-          production: "https://my-remote-api.com" // on "gatsby build"
+          production: "https://aqueous-fortress-10362.herokuapp.com/api/v1/points" // on "gatsby build"
         },
         imageKeys: ["picture_url"],
         rootKey: "points",
