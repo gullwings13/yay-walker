@@ -26,31 +26,29 @@ class NewTour extends React.Component
         navigate(`/`)
     }
 
-
-    const api = axios.create({
-        baseURL: baseUrl
-    })
-
-    export const loginUser = async (loginData) =>
-    {
-        const resp = await api.post('/auth/login', loginData)
-        localStorage.setItem('authToken', resp.data.token)
-        api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
-        return resp.data.user
-    }
-
-
-
     handleCreateTour = async newTour =>
     {
-        const options = {
-            method: 'POST',
-            headers: { 'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6MTU4NTAwMzA3Nn0.zV2LeOnrzOsH26PJa8aXP_85_p65RAWOXN1SfhtXc04' },
-            data: newTour
+        const baseUrl = 'http://localhost:3000/api/v1'
+
+        const api = axios.create({
+            baseURL: baseUrl
+        })
+
+        const createTour = async (data) =>
+        {
+            api.defaults.headers.common.authorization = `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6MTU4NTAwMzA3Nn0.zV2LeOnrzOsH26PJa8aXP_85_p65RAWOXN1SfhtXc04`
+            let response = await api.post('/tours', data)
+            return response
         }
 
+        // const options = {
+        //     method: 'POST',
+        //     headers: { 'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6MTU4NTAwMzA3Nn0.zV2LeOnrzOsH26PJa8aXP_85_p65RAWOXN1SfhtXc04' },
+        //     data: newTour
+        // }
+
         // let response = await axios.post('http://localhost:3000/api/v1/tours', newTour)
-        let response = await axios(options)
+        let response = await createTour(newTour)
 
         if (response.status === 200)
         {
