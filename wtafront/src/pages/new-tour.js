@@ -53,6 +53,7 @@ class NewTour extends React.Component
         if (response.status === 200)
         {
             console.log("Cool made a tour")
+            await axios.post("https://api.netlify.com/build_hooks/5e670550a55a1405876f4a85", {})
         }
     }
 
