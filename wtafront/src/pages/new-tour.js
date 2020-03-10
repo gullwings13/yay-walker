@@ -28,7 +28,8 @@ class NewTour extends React.Component
 
     handleCreateTour = async newTour =>
     {
-        const baseUrl = 'http://localhost:3000/api/v1'
+        // const baseUrl = 'http://localhost:3000/api/v1'
+        const baseUrl = "https://aqueous-fortress-10362.herokuapp.com/api/v1/"
 
         const api = axios.create({
             baseURL: baseUrl
