@@ -59,9 +59,9 @@ export default class TourEdit extends Component
                     formType={"Edit Tour"}
                     formButtonText={"Submit Tour Changes"}
                 />
-                {this.state.points.length > 0 ?
-                    <Link to={`/tours/${this.state.id}/`}>Add points of interest</Link> :
-                    <Link to={`/tours`}>Edit points of interest</Link>}
+                {this.state.points.length < 1 ?
+                    <Link to={`/tours/${this.state.id}/newpoint`}>Add points of interest</Link> :
+                    <Link to={`/tours/${this.state.id}/points/`}>Edit points of interest</Link>}
             </SideBarLayout>
         )
     }

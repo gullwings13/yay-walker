@@ -17,7 +17,7 @@ class Api::V1::ToursController < ApiController
 
     def show
         begin
-            render json: @tour, :include => [{:user => {:only => [:name, :avatar_url]}},:point => [:points]] status: :ok
+            render json: @tour, include: [{:user => {:only => [:name, :avatar_url]}}, :points], status: :ok
         rescue ActiveRecord::RecordNotFound
             render json: {
                 message: "Tour not found with that ID"
