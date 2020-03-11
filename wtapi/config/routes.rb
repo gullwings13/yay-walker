@@ -11,7 +11,10 @@ Rails.application.routes.draw do
         end
       end
       
-      resources :tours
+      resources :tours do
+        resources :points
+      end
+      
       resources :points
 
       get '/all' => 'users#all'
