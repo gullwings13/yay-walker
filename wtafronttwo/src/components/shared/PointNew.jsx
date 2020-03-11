@@ -28,7 +28,12 @@ export default class PointNew extends Component
         })
     }
 
-    async componentDidMount()
+    componentDidMount()
+    {
+        this.getTourAndPoints()
+    }
+
+    getTourAndPoints = async () =>
     {
         let tourId = this.props.match.params.id
         let response = await getTour(tourId)
@@ -46,7 +51,7 @@ export default class PointNew extends Component
         console.log(this.state)
         let response = await newPoint(tourId, this.state.newpoint)
         console.log(response)
-        // this.props.history.push(`/tours/${response.data.tour.id}/edit`)
+        this.getTourAndPoints()
     }
 
     render()

@@ -9,8 +9,8 @@ export default class PointList extends Component
             <div>
                 Points of interest
                 {this.props.points.map((point, index) => (
-                    <div>
-                        <Link key={index} to={`/tours/${this.props.tourId}/points/${point.id}/edit`}>Point{index}</Link>
+                    <div key={index}>
+                        <Link to={`/tours/${this.props.tourId}/points/${point.id}/edit`}>Edit Point {index}</Link>
                     </div>
                 ))}
             </div>
