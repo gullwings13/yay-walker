@@ -1,11 +1,3 @@
-import axios from 'axios'
-// import apiUrl from './apiConfig'
-
-
-// const api = axios.create({
-//     baseURL: apiUrl
-// })
-
 import { api } from './auth'
 
 const tryCatchAPICall = async (methodString, urlString, data = null) =>
