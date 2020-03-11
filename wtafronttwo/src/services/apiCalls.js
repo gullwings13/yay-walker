@@ -32,4 +32,8 @@ export const newTour = async (newTour) =>
     return response
 }
 
-
+export const newPoint = async (tourId, newPoint) =>
+{
+    let response = await tryCatchAPICall("POST", `/tours/${tourId}/points`, newPoint)
+    return response
+}

@@ -1,26 +1,51 @@
 import React, { Component } from 'react'
 import PointForm from './PointForm'
+import SideBarLayout from './SideBarLayout'
+import PointList from './PointList'
+import { getTour, newPoint } from '../../services/apiCalls'
 
 export default class PointNew extends Component
 {
     state = {
-        name: ``,
-        description: ``,
-        img_url: ``
+        newpoint: {
+            lat: ``,
+            long: ``,
+            text: ``,
+            picture_url: ``
+        },
+        points: [],
+        tourId: null
     }
 
-    handleUpdate = event =>
+    handleChange = event =>
     {
+        console.log(event.target.name)
+        console.log(event.target.value)
         this.setState({
-            [event.target.name]: event.target.value,
+            newpoint: {
+                [event.target.name]: event.target.value,
+            }
+        })
+    }
+
+    async componentDidMount()
+    {
+        let tourId = this.props.match.params.id
+        let response = await getTour(tourId)
+        console.log(response)
+        this.setState({
+            points: response.data.points,
+            tourId: response.data.id
         })
     }
 
     handleSubmit = async (event) =>
     {
         event.preventDefault()
-        // let response = await editTour(this.state)
-        // console.log(response)
+        let tourId = this.props.match.params.id
+        console.log(this.state)
+        let response = await newPoint(tourId, this.state.newpoint)
+        console.log(response)
         // this.props.history.push(`/tours/${response.data.tour.id}/edit`)
     }
 
@@ -29,14 +54,15 @@ export default class PointNew extends Component
         return (
             <div>
                 <SideBarLayout>
+                    <PointList points={this.state.points} tourId={this.state.tourId} />
                     <PointForm
                         handleChange={this.handleChange}
                         handleSubmit={this.handleSubmit}
-                        formButtonText={"Submit Tour Changes"}
+                        formData={this.state.newpoint}
+                        formType="New Point"
+                        formButtonText={"Submit"}
                     />
-                    <Link to="">Submit Point</Link>
                 </SideBarLayout>
-
             </div >
         )
     }

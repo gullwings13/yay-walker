@@ -23,6 +23,8 @@ class App extends React.Component
             {/* <Route exact path="/user/:id" component={Home} /> */}
             <Route exact path="/newtour/" component={NewTourMap} />
             <Route exact path="/tours/:id/edit" component={NewTourMap} />
+            <Route exact path="/tours/:id/newpoint" component={NewTourMap} />
+            <Route exact path="/tours/:id/editpoints" component={NewTourMap} />
           </Switch>
         </Layout>
       </div>

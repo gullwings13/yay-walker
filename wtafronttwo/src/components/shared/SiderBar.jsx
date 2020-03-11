@@ -4,6 +4,7 @@ import TourNew from './TourNew'
 import Profile from './Profile'
 import TourDetail from './TourDetail'
 import TourEdit from './TourEdit'
+import PointNew from './PointNew'
 
 export default class SiderBar extends Component
 {
@@ -16,6 +17,7 @@ export default class SiderBar extends Component
                 <Route exact path="/profile" render={(props) => (<Profile {...props} />)} />
                 <Route exact path="/tours/:id" render={(props) => (<TourDetail {...props} />)} />
                 <Route exact path="/tours/:id/edit" render={(props) => (<TourEdit {...props} />)} />
+                <Route exact path="/tours/:id/newpoint" render={(props) => (<PointNew {...props} />)} />
             </React.Fragment>
         )
     }
