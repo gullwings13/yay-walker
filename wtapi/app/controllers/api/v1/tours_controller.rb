@@ -1,5 +1,6 @@
 class Api::V1::ToursController < ApiController
     skip_before_action :authenticate_user!, only: [:index, :show]
+    # skip_before_action :authenticate_api_v1_user!, only: [:index, :show]
     before_action :set_tour, only: [:show, :update, :destroy]
     # before_action :set_tour, only: [:update, :destroy]
 
