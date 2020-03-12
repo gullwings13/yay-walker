@@ -2,6 +2,7 @@ import React from 'react'
 
 export default function PointForm(props)
 {
+    console.log(props.formData)
     return (
         <React.Fragment>
 

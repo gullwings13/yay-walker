@@ -24,7 +24,7 @@ export default class TourNew extends Component
         event.preventDefault()
         let response = await newTour(this.state)
         console.log(response)
-        this.props.history.push(`/tours/${response.data.tour.id}/edit`)
+        this.props.history.push(`/tours/${response.data.tour.id}/newpoint`)
     }
 
     render()

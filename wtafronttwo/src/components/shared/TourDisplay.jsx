@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
+import SideBarLayout from './SideBarLayout'
+import TourDetail from './TourDetail'
 import { getTour } from '../../services/apiCalls'
-export default class Tour extends Component
+
+export default class TourDisplay extends Component
 {
+
     state = {
         tour: null
     }
@@ -20,19 +24,13 @@ export default class Tour extends Component
         })
     }
 
-    tourDetails = () =>
-        (
-            <React.Fragment>
-                <img className=" bg-cover content-center h-screen object-cover object-center" src={this.state.tour.img_url} />
-            </React.Fragment>
-        )
 
     render()
     {
         return (
-            <div>
-                {this.state.tour && this.tourDetails()}
-            </div >
+            <SideBarLayout>
+                <TourDetail tour={this.state.tour} displayImage={false}/>
+            </SideBarLayout>
         )
     }
 }

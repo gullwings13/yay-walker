@@ -6,13 +6,15 @@ export default class PointList extends Component
     render()
     {
         return (
-            <div>
+            <div className="border-black border">
                 Points of interest
-                {this.props.points.map((point, index) => (
-                    <div key={index}>
-                        <Link to={`/tours/${this.props.tourId}/points/${point.id}/edit`}>Edit Point {index}</Link>
-                    </div>
-                ))}
+                <div className=" h-16 overflow-auto border-black border">
+                    {this.props.points.map((point, index) => (
+                        <div key={index}>
+                            <Link to={`/tours/${this.props.tourId}/points/${point.id}/edit`}>Edit Point {index}</Link>
+                        </div>
+                    ))}
+                </div>
             </div>
         )
     }

@@ -3,6 +3,7 @@ import PointForm from './PointForm'
 import SideBarLayout from './SideBarLayout'
 import PointList from './PointList'
 import { getTour, newPoint } from '../../services/apiCalls'
+import TourDetail from './TourDetail'
 
 export default class PointNew extends Component
 {
@@ -14,7 +15,7 @@ export default class PointNew extends Component
             picture_url: ``
         },
         points: [],
-        tourId: null
+        tour: null
     }
 
     handleChange = event =>
@@ -40,7 +41,7 @@ export default class PointNew extends Component
         console.log(response)
         this.setState({
             points: response.data.points,
-            tourId: response.data.id
+            tour: response.data
         })
     }
 
@@ -59,13 +60,15 @@ export default class PointNew extends Component
         return (
             <div>
                 <SideBarLayout>
-                    <PointList points={this.state.points} tourId={this.state.tourId} />
+                    <TourDetail tour={this.state.tour} displayImage={true} />
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Save tour and points</button>
+                    <PointList points={this.state.points} tourId={this.state.tour && this.state.tour.id} />
                     <PointForm
                         handleChange={this.handleChange}
                         handleSubmit={this.handleSubmit}
                         formData={this.state.newpoint}
                         formType="New Point"
-                        formButtonText={"Submit"}
+                        formButtonText={"Save point"}
                     />
                 </SideBarLayout>
             </div >
