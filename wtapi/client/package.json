@@ -17,10 +17,7 @@
   },
   "scripts": {
     "buildcss": "postcss src/css/tailwindinput.css -o src/css/tailwinds.css",
-    "start": "PORT=8000 react-scripts start",
-    "build": "yarn --cwd client install && yarn --cwd client build",
-    "deploy": "cp -a client/build/. public/",
-    "heroku-postbuild": "yarn build && yarn deploy"
+    "start": "PORT=8000 react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"
