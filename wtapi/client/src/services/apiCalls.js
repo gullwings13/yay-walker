@@ -35,6 +35,19 @@ export const newTour = async (newTour) =>
 export const newPoint = async (tourId, newPoint) =>
 {
     let response = await tryCatchAPICall("POST", `/tours/${tourId}/points`, newPoint)
+    console.log(response)
+    return response
+}
+
+export const getUser = async (userId) =>
+{
+    let response = await tryCatchAPICall("GET", `/users/${userId}`)
+    return response
+}
+
+export const getProfile = async () =>
+{
+    let response = await tryCatchAPICall("GET", `/profile`)
     return response
 }
 

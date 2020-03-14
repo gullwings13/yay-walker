@@ -5,6 +5,10 @@ import SideBarLayout from './SideBarLayout'
 
 export default class TourNew extends Component
 {
+    constructor(props)
+    {
+        super(props)
+    }
 
     state = {
         name: ``,

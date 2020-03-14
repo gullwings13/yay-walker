@@ -5,6 +5,9 @@ import Layout from './components/shared/Layout'
 import "./css/tailwinds.css"
 import Tour from './components/routes/Tour'
 import NewTourMap from './components/routes/NewTourMap'
+import { isLoggedIn } from './services/auth'
+
+
 
 class App extends React.Component
 {

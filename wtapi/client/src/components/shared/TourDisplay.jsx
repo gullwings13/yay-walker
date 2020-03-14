@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import SideBarLayout from './SideBarLayout'
 import TourDetail from './TourDetail'
 import { getTour } from '../../services/apiCalls'
-import { getUser } from '../../services/auth'
+import { getLoggedInUser } from '../../services/auth'
 
 export default class TourDisplay extends Component
 {
@@ -20,9 +20,9 @@ export default class TourDisplay extends Component
     getTour = async () =>
     {
         let response = await getTour(this.props.match.params.id)
-        console.log(getUser().id)
+        console.log(getLoggedInUser().id)
         console.log(response.data.user_id)
-        let owner = getUser().id == response.data.user_id
+        let owner = getLoggedInUser().id == response.data.user_id
         console.log(response.data)
         this.setState({
             tour: response.data,

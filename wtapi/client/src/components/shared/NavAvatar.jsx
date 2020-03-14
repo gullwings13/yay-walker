@@ -1,5 +1,5 @@
 import React from 'react'
-import { getUser, isLoggedIn, logout } from "../../services/auth"
+import { getLoggedInUser, isLoggedIn, logout } from "../../services/auth"
 import { Link } from 'react-router-dom'
 
 const NavAvatar = props =>
@@ -14,9 +14,9 @@ const NavAvatar = props =>
                             <img style={{
                                 width: "50px", height: "50px"
                             }}
-                                src={getUser().avatarUrl} alt="avatar" />
+                                src={getLoggedInUser().avatarUrl} alt="avatar" />
                             <div>
-                                {getUser().name}
+                                {getLoggedInUser().name}
                             </div>
 
                         </div>

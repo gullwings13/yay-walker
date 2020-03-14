@@ -7,7 +7,7 @@ export const api = axios.create({
 
 export const isBrowser = () => typeof window !== "undefined"
 
-export const getUser = () =>
+export const getLoggedInUser = () =>
     (
         isBrowser() && window.localStorage.getItem("Yay!Walker")
             ? JSON.parse(window.localStorage.getItem("Yay!Walker"))
@@ -47,20 +47,12 @@ export const handleLogin = async ({ email, password }, callback) =>
 
 }
 
-// export const loginUser = async (loginData) =>
-// {
-//     const resp = await api.post('/auth/login', loginData)
-//     localStorage.setItem('authToken', resp.data.token)
-//     api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
-//     return resp.data.user
-// }
-
-
 export const handleSignup = async ({ email, password }, callback) =>
 {
     try
     {
-        let response = await axios.post(`${apiUrl}/users/`, {
+        // The registration route is not name spaced inside /api/v1 and so it POSTS to /users
+        let response = await axios.post(`/users/`, {
             email: email,
             password: password
         })
@@ -86,7 +78,7 @@ export const handleSignup = async ({ email, password }, callback) =>
 
 export const isLoggedIn = () =>
 {
-    const user = getUser()
+    const user = getLoggedInUser()
     api.defaults.headers.common.authorization = `Bearer ${user.token}`
     return !!user.token
 }

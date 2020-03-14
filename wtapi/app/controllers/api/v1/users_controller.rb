@@ -14,7 +14,8 @@ class Api::V1::UsersController < ApiController
 
     def show 
         begin
-            render json: @user, include: :tours, status: :ok
+            render json: @user, only: [:name, :avatar_url, :bio], include: :tours, status: :ok
+            #render json: @tour, include: [{:user => {:only => [:name, :avatar_url]}}, :points], status: :ok
         rescue ActiveRecord::RecordNotFound
             render json: {
                 message: "User not found with that ID"
@@ -38,6 +39,13 @@ class Api::V1::UsersController < ApiController
                 message: @user.errors
             }, status: 500
         end
+    end
+
+    def profile
+            render json: {
+                message: "ok",
+                user: current_user
+            }, status: :ok
     end
   
     def destroy

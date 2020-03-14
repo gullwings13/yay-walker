@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       resources :points
 
       get '/all' => 'users#all'
+      get '/profile' => 'users#profile'
 
       # post '/cart' => 'users#cartadd'
       # delete '/cart/$user_id/$product_id' => 'users#cartadd'
