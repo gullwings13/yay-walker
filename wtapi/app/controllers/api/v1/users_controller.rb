@@ -42,10 +42,7 @@ class Api::V1::UsersController < ApiController
     end
 
     def profile
-            render json: {
-                message: "ok",
-                user: current_user
-            }, status: :ok
+            render json: current_user, :include => {:tours => {include: :points}}, status: :ok
     end
   
     def destroy
