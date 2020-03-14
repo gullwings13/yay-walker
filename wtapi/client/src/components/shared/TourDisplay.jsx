@@ -20,10 +20,7 @@ export default class TourDisplay extends Component
     getTour = async () =>
     {
         let response = await getTour(this.props.match.params.id)
-        console.log(getLoggedInUser().id)
-        console.log(response.data.user_id)
         let owner = getLoggedInUser().id == response.data.user_id
-        console.log(response.data)
         this.setState({
             tour: response.data,
             owner: owner

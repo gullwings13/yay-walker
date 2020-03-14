@@ -20,8 +20,6 @@ export default class PointNew extends Component
 
     handleChange = event =>
     {
-        console.log(event.target.name)
-        console.log(event.target.value)
         this.setState({
             newpoint: {
                 ...this.state.newpoint,
@@ -39,7 +37,6 @@ export default class PointNew extends Component
     {
         let tourId = this.props.match.params.id
         let response = await getTour(tourId)
-        console.log(response)
         this.setState({
             points: response.data.points,
             tour: response.data
@@ -50,9 +47,7 @@ export default class PointNew extends Component
     {
         event.preventDefault()
         let tourId = this.props.match.params.id
-        console.log(this.state)
         let response = await newPoint(tourId, this.state.newpoint)
-        console.log(response)
         this.getTourAndPoints()
     }
 

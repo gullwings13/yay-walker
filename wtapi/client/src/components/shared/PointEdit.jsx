@@ -55,8 +55,6 @@ export default class PointEdit extends Component
     {
         let tourId = this.props.match.params.id
         let pointId = this.props.match.params.pointId
-        console.log("point id : " + pointId)
-        console.log("current point id : " + this.state.currentPointId)
         let response = await getTour(tourId)
         let pointResponse = await getPoint(pointId)
         this.setState({
@@ -76,9 +74,7 @@ export default class PointEdit extends Component
         event.preventDefault()
         let tourId = this.props.match.params.id
         let pointId = this.props.match.params.pointId
-        console.log(this.state)
         let response = await updatePoint(tourId, pointId, this.state.editpoint)
-        console.log(response)
         this.getTourAndPoints()
     }
 

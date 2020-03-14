@@ -8,12 +8,10 @@ const NavAvatar = props =>
         <React.Fragment>
             {isLoggedIn() ? (
                 <React.Fragment>
-                    <Link to="/profile">
+                    <Link className="hover:text-teal-400 hover:underline hover:bg-gray-700 bg-red-500 rounded-full" to="/profile">
                         <div className="flex items-center">
 
-                            <img style={{
-                                width: "50px", height: "50px"
-                            }}
+                            <img className="bg-red-600 rounded-full w-16"
                                 src={getLoggedInUser().avatarUrl} alt="avatar" />
                             <div>
                                 {getLoggedInUser().name}
@@ -22,19 +20,19 @@ const NavAvatar = props =>
                         </div>
                     </Link>
                     <div>
-                        <Link to="/newtour">New Tour</Link>
+                        <Link className="hover:text-purple-400 hover:underline" to="/newtour">New Tour</Link>
                     </div>
-                    <a href="/" onClick={event =>
+                    <Link className="mr-3 hover:text-purple-400 hover:underline" href="/" onClick={event =>
                     {
                         event.preventDefault()
                         logout(() => props.history.push(`/`))
                     }}>
                         Logout
-                    </a>
+                    </Link>
                 </React.Fragment>) : (
                     <React.Fragment>
-                        <Link to="/login">Login</Link>
-                        <Link to="/signup">Signup</Link>
+                        <Link className="mr-3 hover:text-purple-400 hover:underline" to="/login">Login</Link>
+                        <Link className="mr-3 hover:text-purple-400 hover:underline" to="/signup">Signup</Link>
                     </React.Fragment>
                 )}
         </React.Fragment>

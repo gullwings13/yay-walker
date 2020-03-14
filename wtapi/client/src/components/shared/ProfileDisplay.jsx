@@ -11,7 +11,6 @@ export default class ProfileDisplay extends Component
 
     async componentDidMount()
     {
-        console.log("profile loaded")
         let response
         if (this.props.match.path === "/profile")
         {

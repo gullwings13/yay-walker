@@ -20,7 +20,7 @@ export default class TourDetail extends Component
 
                 <div>
                 </div>
-                <div>
+                <div className="font-serif">
                     {this.props.tour.name}
                 </div>
                 <div>

@@ -1,6 +1,7 @@
 import React from "react"
 import { handleLogin, isLoggedIn } from "../../services/auth"
 import { Redirect } from "react-router-dom"
+import NavForm from "./NavForm"
 
 class NavLogin extends React.Component
 {
@@ -21,10 +22,10 @@ class NavLogin extends React.Component
         })
     }
 
-    handleSubmit = async (event, callback) =>
+    handleSubmit = async (event) =>
     {
         event.preventDefault()
-        await handleLogin(this.state, callback)
+        await handleLogin(this.state, () => { this.props.history.push("/") })
     }
 
     render()
@@ -37,17 +38,7 @@ class NavLogin extends React.Component
         {
             return (
                 <React.Fragment>
-                    <form method="post" onSubmit={event => { this.handleSubmit(event, () => { this.props.history.push("/") }) }}>
-                        <label>
-                            Email
-                            <input type="text" name="email" onChange={this.handleUpdate} />
-                        </label>
-                        <label>
-                            Password
-                            <input type="password" name="password" onChange={this.handleUpdate} />
-                        </label>
-                        <input type="submit" value="Log In" />
-                    </form>
+                    <NavForm handleSubmit={this.handleSubmit} handleUpdate={this.handleUpdate} submitButtonText="Login" />
                 </React.Fragment>
             )
         }

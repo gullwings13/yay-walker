@@ -1,6 +1,7 @@
 import React from "react"
 import { handleSignup, isLoggedIn } from "../../services/auth"
 import { Redirect } from "react-router-dom"
+import NavForm from "./NavForm"
 
 class NavSignup extends React.Component
 {
@@ -37,17 +38,7 @@ class NavSignup extends React.Component
         {
             return (
                 <React.Fragment>
-                    <form method="post" onSubmit={event => { this.handleSubmit(event, () => { this.props.history.push("/") }) }}>
-                        <label>
-                            Email
-                            <input type="text" name="email" onChange={this.handleUpdate} />
-                        </label>
-                        <label>
-                            Password
-                            <input type="password" name="password" onChange={this.handleUpdate} />
-                        </label>
-                        <input type="submit" value="SignUp" />
-                    </form>
+                    <NavForm handleSubmit={this.handleSubmit} handleUpdate={this.handleUpdate} submitButtonText="Sign up" />
                 </React.Fragment>
             )
         }

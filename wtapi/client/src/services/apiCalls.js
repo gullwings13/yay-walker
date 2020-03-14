@@ -35,7 +35,6 @@ export const newTour = async (newTour) =>
 export const newPoint = async (tourId, newPoint) =>
 {
     let response = await tryCatchAPICall("POST", `/tours/${tourId}/points`, newPoint)
-    console.log(response)
     return response
 }
 
@@ -59,9 +58,7 @@ export const getPoint = async (pointId) =>
 
 export const updatePoint = async (tourId, pointId, editedPoint) =>
 {
-    // console.log(pointId)
     let response = await tryCatchAPICall("PUT", `/tours/${tourId}/points/${pointId}`, editedPoint)
-
     return response
 }
 

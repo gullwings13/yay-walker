@@ -15,8 +15,8 @@ class App extends React.Component
   render()
   {
     return (
-      <div className="bg-gray-800">
-        <Layout>
+      <div className="bg-gray-800 font-sans text-gray-800">
+        <Layout {...this.props}>
           <Switch>
             <Route exact path="/" render={(props) => <Home {...props} />} />
             <Route exact path="/login" render={(props) => <Home {...props} />} />

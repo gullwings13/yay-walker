@@ -9,14 +9,18 @@ const Nav = (props) =>
 {
     return (
         <nav>
-            {/* <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}> */}
-            <div className="flex items-center justify-evenly">
-                <div className="w-1/4">
+            <div className="flex items-center ml-3 font-sans text-gray-600 font-semibold">
+                <div className="w-1/3">
                     <Link to="/">
-                        <h1 className="text-4xl">Yay!Walker</h1>
+                        <h1 className="font-serif text-gray-200 text-4xl hover:text-teal-400 hover:underline">Yay!Walker</h1>
                     </Link>
+                    <h2 className="">User submitted walking tours</h2>
                 </div>
-                <div className="flex w-3/4 justify-evenly items-center">
+                <div className={
+                    (props.match.path !== "/login" ||
+                        props.match.path !== "/signup") ?
+                        "flex w-2/3 justify-end items-center" :
+                        "flex w-2/3 justify-end items-center"}>
                     <Switch>
                         <Route path="/login" render={(props) => (<NavLogin {...props} />)} />
                         <Route path="/signup" render={(props) => (<NavSignup {...props} />)} />

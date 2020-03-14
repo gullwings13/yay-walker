@@ -7,7 +7,7 @@ const Layout = (props) =>
 {
     return (
         <React.Fragment>
-            <Nav />
+            <Nav {...props} />
             <div className="flex flex-row">
                 <SiderBar />
                 <main>

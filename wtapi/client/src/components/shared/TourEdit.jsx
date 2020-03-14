@@ -22,7 +22,6 @@ export default class TourEdit extends Component
     getTour = async () =>
     {
         let response = await getTour(this.props.match.params.id)
-        console.log(response.data)
         const tour = response.data
         this.setState({
             name: tour.name,
