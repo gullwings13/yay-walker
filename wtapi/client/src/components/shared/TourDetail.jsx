@@ -15,7 +15,7 @@ export default class TourDetail extends Component
                     }}>Edit</button>}
 
                 <div>
-                    {this.props.displayImage && <img className=" rounded-tr-lg" src={this.props.tour.img_url} />}
+                    {this.props.displayImage && <img className=" rounded-tr-lg" src={this.props.tour.img_url} alt="Tour highlight" />}
                 </div>
 
                 <div>

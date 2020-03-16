@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import SideBarLayout from './SideBarLayout'
-import { Link } from 'react-router-dom'
 import TourForm from './TourForm'
 import { getTour, updateTour } from '../../services/apiCalls'
 
@@ -43,7 +42,7 @@ export default class TourEdit extends Component
     {
         event.preventDefault()
         let tourId = this.props.match.params.id
-        let response = await updateTour(tourId, this.state)
+        await updateTour(tourId, this.state)
         this.props.history.push(`/tours/${tourId}`)
     }
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { getUser, getProfile } from '../../services/apiCalls'
-import { getLoggedInUser } from '../../services/auth'
 
 export default class ProfileDisplay extends Component
 {

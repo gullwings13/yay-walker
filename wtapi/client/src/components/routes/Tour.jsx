@@ -22,7 +22,7 @@ export default class Tour extends Component
     tourDetails = () =>
         (
             <React.Fragment>
-                <img className=" bg-cover content-center h-screen object-cover object-center" src={this.state.tour.img_url} />
+                <img className=" bg-cover content-center h-screen object-cover object-center" src={this.state.tour.img_url} alt="Tour" />
             </React.Fragment>
         )
 

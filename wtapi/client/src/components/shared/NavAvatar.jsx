@@ -22,7 +22,7 @@ const NavAvatar = props =>
                     <div>
                         <Link className="hover:text-purple-400 hover:underline" to="/newtour">New Tour</Link>
                     </div>
-                    <Link className="mr-3 hover:text-purple-400 hover:underline" href="/" onClick={event =>
+                    <Link className="mr-3 hover:text-purple-400 hover:underline" to="/" onClick={event =>
                     {
                         event.preventDefault()
                         logout(() => props.history.push(`/`))

@@ -47,7 +47,7 @@ export default class PointNew extends Component
     {
         event.preventDefault()
         let tourId = this.props.match.params.id
-        let response = await newPoint(tourId, this.state.newpoint)
+        await newPoint(tourId, this.state.newpoint)
         this.getTourAndPoints()
     }
 
