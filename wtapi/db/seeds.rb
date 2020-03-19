@@ -11,12 +11,12 @@ require 'faker'
 user1 = User.create(
     email:"trev@trev.com", 
     password:"password", 
-    name:Faker::Internet.username, 
+    name:"Trev", 
     bio:Faker::Hipster.paragraph(sentence_count: 1), 
     avatar_url:Faker::Avatar.image)
 
 tour1u1 = Tour.create(
-    name:Faker::Hipster.sentence(word_count: 3), 
+    name:Faker::Hipster.sentence(word_count: 1), 
     description: Faker::Hipster.paragraph(sentence_count: 4), 
     img_url: 'https://source.unsplash.com/random/1920x1080/?nature,water,hike&sig=1')
 

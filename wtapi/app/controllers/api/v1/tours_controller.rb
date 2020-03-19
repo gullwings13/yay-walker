@@ -7,7 +7,7 @@ class Api::V1::ToursController < ApiController
     def index
         p params[:user_id]
         if params[:user_id].nil?
-            @tours = Tour.all
+            @tours = Tour.all.order(id: :desc)
             render json: @tours, :include => {:user => {:only => [:name, :avatar_url]}}, status: :ok
         else
             @tours = Tour.where(user_id: params[:user_id])
